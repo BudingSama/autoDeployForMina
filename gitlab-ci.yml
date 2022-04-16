@@ -1,0 +1,11 @@
+master: 
+stage: build 
+only: - master 
+script: - git pull origin master # 拉取最新代码，如果是在自己本机中，这里可以不用 
+- cd /Users/mac/code/lab-runner # 进入项目目录 
+- cnpm -v 
+- cnpm i 
+- npm run build:weapp 
+- curl http://127.0.0.1:20375/preview?projectpath=%2FUsers%2Fsakai%2FSakai%2Fauto.deploy.mina # 上传版本 
+tags: 
+- shell
